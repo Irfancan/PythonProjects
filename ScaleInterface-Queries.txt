@@ -1,0 +1,23 @@
+CustomWeighReport:
+
+SELECT PostedCustomWeighs.TicketNumber, PostedCustomWeighs.DateWeighed, FreightCarriers.CarrierName, PostedCustomWeighs.Notes, PostedCustomWeighs.GrossWeight, PostedCustomWeighs.TareWeight, [GrossWeight]-[TareWeight] AS FinalWeight
+FROM FreightCarriers INNER JOIN PostedCustomWeighs ON FreightCarriers.ShipperID = PostedCustomWeighs.CarrierID
+WHERE (((PostedCustomWeighs.DateWeighed)>=#1/1/2007# And (PostedCustomWeighs.DateWeighed)<=#12/31/2007#));
+
+
+MyQuery:
+SELECT PostedCustomWeighs.TicketNumber, PostedCustomWeighs.DateWeighed, FreightCarriers.CarrierName, PostedCustomWeighs.Notes, PostedCustomWeighs.GrossWeight, PostedCustomWeighs.TareWeight, [GrossWeight]-[TareWeight] AS FinalWeight, PostedCustomWeighs.Location, PostedCustomWeighs.Contents, PostedCustomWeighs.Notes, PostedCustomWeighs.GrossTimeStamp, PostedCustomWeighs.TareTimeStamp, PostedCustomWeighs.ARType, PostedCustomWeighs.VehicleID
+FROM FreightCarriers INNER JOIN PostedCustomWeighs ON FreightCarriers.ShipperID = PostedCustomWeighs.CarrierID
+WHERE (((PostedCustomWeighs.DateWeighed)>=#1/1/2007# And (PostedCustomWeighs.DateWeighed)<=#12/31/2007#));
+
+
+
+SELECT PostedCustomWeighs.TicketNumber, PostedCustomWeighs.DateWeighed, FreightCarriers.CarrierName, PostedCustomWeighs.Notes, PostedCustomWeighs.GrossWeight, PostedCustomWeighs.TareWeight, [GrossWeight]-[TareWeight] AS FinalWeight, PostedCustomWeighs.Location, PostedCustomWeighs.Contents, PostedCustomWeighs.Notes, PostedCustomWeighs.GrossTimeStamp, PostedCustomWeighs.TareTimeStamp, PostedCustomWeighs.ARType, PostedCustomWeighs.VehicleID
+FROM FreightCarriers INNER JOIN PostedCustomWeighs ON FreightCarriers.ShipperID = PostedCustomWeighs.CarrierID
+WHERE (((PostedCustomWeighs.DateWeighed)>=#1/1/2015# And (PostedCustomWeighs.DateWeighed)<=#12/31/2015#));
+
+
+
+
+Excel Query: Negative time to positive
+=IF(J4-I4<0, TEXT(ABS(J4-I4),"h:mm"), J4-I4)
